@@ -15,7 +15,7 @@ API REST para **cadastrar, listar, editar e excluir usuários**, construída com
 - Cadastro de usuários com nome, idade e e-mail
 - E-mail único: não permite dois usuários com o mesmo e-mail
 - Listagem de todos os usuários
-- Edição de usuários
+- Edição de usuários (usada pelo ícone de lápis do front-end)
 - Exclusão de usuários
 - Respostas de erro com mensagem clara (por exemplo, e-mail já cadastrado)
 
@@ -72,8 +72,9 @@ Endereço base: `https://back-cadastro-usuarios.onrender.com`
 | ------ | ----------------------------------------------------------- |
 | `200`  | Requisição feita com sucesso (listar, editar, excluir)      |
 | `201`  | Usuário criado com sucesso                                  |
-| `409`  | E-mail já cadastrado (`{ "message": "Este email já está cadastrado." }`) |
-| `500`  | Erro interno ao cadastrar o usuário                         |
+| `404`  | Usuário não encontrado (`PUT`)                              |
+| `409`  | E-mail já cadastrado, no cadastro ou na edição (`{ "message": "Este email já está cadastrado." }`) |
+| `500`  | Erro interno ao cadastrar ou atualizar o usuário            |
 
 ---
 
